@@ -1,7 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,63 +11,46 @@
     <script src="/js/jquery-2.1.1.min.js"></script>
     <script src="/js/jquery-ui.min.js"></script>
     <script src="/js/room.js"></script>
-  </head>
-
-  <body>
-    <div class="wrapper">
-
-      <nav class="nav">
-      </nav>
-
-      <div class="container">
-        <div class="starter-template">
-          <h1>Обставь комнату!</h1>
-          <div class="room bb">
-            <div class="battery bb">Батарея
-            </div>
-            <div class="balcony bb"></div>
-            <div class="door bb"></div>
-            <div class="big-table bb drag">Письменный стол
-              <div class="rotate" title="Развернуть"></div>
-            </div>
-            <!-- <div class="comp-table bb drag">Компьютерный стол</div> -->
-            <div class="sofa bb drag">Диван
-              <div class="res" title="Разложить/сложить"></div>
-              <div class="rotate" title="Развернуть"></div>
-            </div>
-            <div class="bureau bb drag">Бюро
-              <div class="rotate" title="Развернуть"></div>
-            </div>
-            <div class="stand bb drag">Теле-тумба
-              <div class="rotate" title="Развернуть"></div>
-            </div>
-            <div class="pouf bb drag">Пуф</div>
-
-            <div class="sideboard s1 bb drag">Сервант
-              <div class="rotate" title="Развернуть"></div>
-            </div>
-            <div class="sideboard s2 bb drag">Сервант
-              <div class="rotate" title="Развернуть"></div>
-            </div>
-
-            <div class="wardrobe bb drag">Шкаф
-              <div class="rotate" title="Развернуть"></div>
-            </div>
-
-            <div class="cot bb drag">Кроватка
-              <div class="rotate" title="Развернуть"></div>
-            </div>
-            <div class="commode bb drag">Комод
-              <div class="rotate" title="Развернуть"></div>
-            </div>
-
-            <div class="chair bb drag">Стул</div>
-            <div class="armchair bb drag">Кресло
-              <div class="rotate" title="Развернуть"></div>
-            </div>
-          </div>
+</head>
+<body>
+<div class="wrapper">
+    <div class="sidebar">
+        <div class="form">
+            <h2>Room parameters</h2>
+            <input type="text" id="length_room" placeholder="Length, m">
+            <input type="text" id="height_room" placeholder="Height, m">
+            <div id="apply_room" class="button">Apply</div>
         </div>
-      </div>
+        <div class="clear"></div>
+        <div class="form">
+            <h2>Add object</h2>
+            <input type="text" id="width_obj" placeholder="Width, m">
+            <input type="text" id="height_obj" placeholder="Height, m">
+            <input type="text" id="title_obj" placeholder="Title">
+            <input type="checkbox" id="fav"><label for="fav">Rotation</label>
+            <div id="add_obj" class="button">Add</div>
+        </div>
+        <div class="clear"></div>
+        <div class="form">
+            <h2>Window/door</h2>
+            <input type="text" id="length_wr" placeholder="Length, m">
+            <input type="text" id="distance_wr" placeholder="Distance to, m">
+            <select id="side_wr">
+                <option value="1">Top</option>
+                <option value="2">Right</option>
+                <option value="3">Bottom</option>
+                <option value="4">Left</option>
+            </select>
+
+            <div id="add_wr" class="button">Add</div>
+        </div>
     </div>
-  </body>
+    <div class="rear">
+        <h2>Rearrangement in the room.</h2>
+        <div class="room">
+        </div>
+
+    </div>
+</div>
+</body>
 </html>
