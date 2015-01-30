@@ -53,30 +53,36 @@ $(document).ready(function(){
         var length_wr = $("#length_wr").val();
         var distance_wr = $("#distance_wr").val();
         var side = $("#side_wr").val();
-        var param, cl;
+        var param, cl, os;
         switch (side) {
             case '1':
                 param = 'left:' + (distance_wr * k * 100 / roomWidth) + '%;top:-4px;height:7px;width:' + (length_wr * k * 100 / roomWidth) + '%;';
                 cl = 'gor';
+                os = 'x';
                 break;
             case '2':
                 param = 'top:' + (distance_wr * k * 100 / roomHeight) + '%;right:-4px;width:7px;height:' + (length_wr * k* 100 / roomHeight) + '%;';
                 cl = 'ver';
+                os = 'y';
                 break;
             case '3':
                 param = 'left:' + (distance_wr * k * 100 / roomWidth) + '%;bottom:-4px;height:7px;width:' + (length_wr * k* 100 / roomWidth) + '%;';
                 cl = 'gor';
+                os = 'x';
                 break;
             case '4':
                 param = 'top:' + (distance_wr * k * 100 / roomHeight) + '%;left:-4px;width:7px;height:' + (length_wr * k* 100 / roomHeight) + '%';
                 cl = 'ver';
+                os = 'y';
                 break;
             default:
                 console.log("Incorrect");
         }
 
 
-        var newObj = $('<div class="wr ' + cl + '" style="' + param + '"></div>');
+        var newObj = $('<div class="wr ' + cl + '" style="' + param + '"></div>').draggable({containment: ".room", axis: os, drag: function() {
+            coordinates($(this));
+        }}).css({"position":"absolute"});;
         room.append(newObj);
 
 
