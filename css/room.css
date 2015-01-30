@@ -58,6 +58,18 @@ a:hover {
     border: 1px solid #000000;
 }
 
+.coords {
+    width: 100%;
+    font-size: 12px;
+    color: #7b7b7b;
+
+    text-align: right;
+    margin-top: 5px;
+}
+.coords span {
+    color: #dd5555;
+}
+
 .drag {
     border: 1px solid #cfcfcf;
     border-radius: 1px;

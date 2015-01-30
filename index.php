@@ -49,6 +49,12 @@
         <h2>Rearrangement in the room.</h2>
         <div class="room">
         </div>
+        <div class="coords">
+            Left: <span id="di_left">0</span> m;
+            Right: <span id="di_right">0</span> m;
+            Top: <span id="di_top">0</span> m;
+            Bottom: <span id="di_bottom">0</span> m;
+        </div>
 
     </div>
 </div>

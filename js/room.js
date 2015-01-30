@@ -1,19 +1,34 @@
 $(document).ready(function(){
     var k = 10;
-    var coordinates = function(element) {
+    var coordinates = function(element, pos) {
         var room = $(".room");
         var length_room = room.innerWidth();
         var height_room = room.innerHeight();
         element = $(element);
-        var top = element.position().top;
-        var bottom = height_room - top - element.outerHeight()
-        var left = element.position().left;
-        var right = length_room - left - element.outerWidth()
-
-        console.log((top / k).toFixed(2) + " " + (right / k).toFixed(2) + " " + (bottom / k).toFixed(2) + " " +(left / k).toFixed(2));
+        if (pos == 'ver' || pos == 'all') {
+            var top = element.position().top;
+            var bottom = height_room - top - element.outerHeight();
+            $("#di_top").text((top / k).toFixed(2));
+            $("#di_bottom").text((bottom / k).toFixed(2));
+        }
+        if (pos == 'gor' || pos == 'all') {
+            var left = element.position().left;
+            var right = length_room - left - element.outerWidth()
+            $("#di_left").text((left / k).toFixed(2));
+            $("#di_right").text((right / k).toFixed(2));
+        }
+        //console.log((top / k).toFixed(2) + " " + (right / k).toFixed(2) + " " + (bottom / k).toFixed(2) + " " +(left / k).toFixed(2));
     };
 
+    function di_null(){
+        $("#di_top").text("0");
+        $("#di_bottom").text("0");
+        $("#di_left").text("0");
+        $("#di_right").text("0");
+    }
+
     $(".form").on("click", "#add_obj", function(){
+        di_null();
         var room = $(".room");
         var length_room = room.innerWidth();
         var height_room = room.innerHeight();
@@ -24,7 +39,7 @@ $(document).ready(function(){
             var newObj = $('<div class="drag" style="left:1px;top:1px;width:' + (width * k * 100 / length_room) +
             '%;height:' + (height * k * 100 / height_room) +
             '%;" l="' + width + '" h="' + height + '"><p>' + title + '</p></div>').draggable({containment: ".room", scroll: false, stack: ".drag", drag: function() {
-                coordinates($(this));
+                coordinates($(this), 'all');
             }}).css({"position":"absolute"});
             room.prepend(newObj);
         } else {
@@ -47,6 +62,7 @@ $(document).ready(function(){
     });
 
     $(".form").on("click", "#add_wr", function(){
+        di_null();
         var room = $(".room");
         var roomWidth = room.innerWidth();
         var roomHeight = room.innerHeight();
@@ -81,7 +97,7 @@ $(document).ready(function(){
 
 
         var newObj = $('<div class="wr ' + cl + '" style="' + param + '"></div>').draggable({containment: ".room", axis: os, drag: function() {
-            coordinates($(this));
+            coordinates($(this), cl);
         }}).css({"position":"absolute"});;
         room.append(newObj);
 
